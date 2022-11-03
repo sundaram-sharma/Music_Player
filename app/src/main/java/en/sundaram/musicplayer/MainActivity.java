@@ -37,31 +37,27 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        String[] projection ={
+        String[] projection = {
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DATA,
                 MediaStore.Audio.Media.DURATION
-
         };
 
-        String selection = MediaStore.Audio.Media.IS_MUSIC + " !=0";
+        String selection = MediaStore.Audio.Media.IS_MUSIC +" != 0";
 
         Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,projection,selection,null,null);
-
-        while (cursor.moveToNext()){
-            AudioModel songData = new AudioModel(cursor.getString(1), cursor.getString(0), cursor.getString(2));
-
+        while(cursor.moveToNext()){
+            AudioModel songData = new AudioModel(cursor.getString(1),cursor.getString(0),cursor.getString(2));
             if(new File(songData.getPath()).exists())
                 songsList.add(songData);
         }
 
-        if(songsList.size() == 0){
+        if(songsList.size()==0){
             noMusicTextView.setVisibility(View.VISIBLE);
-        }
-        else
-        {
+        }else{
+            //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.setAdapter(new MusicListAdapter(songsList, getApplicationContext()));
+            recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));
         }
 
     }
@@ -70,19 +66,23 @@ public class MainActivity extends AppCompatActivity {
         int result = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
         if(result == PackageManager.PERMISSION_GRANTED){
             return true;
-        }
-        else
-        {
+        }else{
             return false;
         }
     }
+
     void requestPermission(){
+        if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
+            Toast.makeText(MainActivity.this,"READ PERMISSION IS REQUIRED,PLEASE ALLOW FROM SETTTINGS",Toast.LENGTH_SHORT).show();
+        }else
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},123);
+    }
 
-        if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)){
-            Toast.makeText(MainActivity.this,"READ PERMISSION IS REQUIRED, PLEASE ALLOW FROM SETTINGS", Toast.LENGTH_LONG).show();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(recyclerView!=null){
+            recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));
         }
-
-
-        ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},123);
     }
 }

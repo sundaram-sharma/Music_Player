@@ -3,14 +3,14 @@ package en.sundaram.musicplayer;
 import android.media.MediaPlayer;
 
 public class MyMediaPlayer {
-    static MediaPlayer instace;
+    static MediaPlayer instance;
 
-    public static MediaPlayer getInstace(){
-        if(instace == null){
-            instace = new MediaPlayer();
+    public static MediaPlayer getInstance(){
+        if(instance == null){
+            instance = new MediaPlayer();
         }
-        return instace;
+        return instance;
     }
 
-    public static  int currentIndex = -1;
+    public static int currentIndex = -1;
 }

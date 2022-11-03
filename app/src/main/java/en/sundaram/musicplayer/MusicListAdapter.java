@@ -2,61 +2,60 @@ package en.sundaram.musicplayer;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
-import android.telephony.ims.ImsMmTelManager;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.progressindicator.AnimatorDurationScaleProvider;
-
-import java.util.ArrayList;
-
-public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.ViewHolder> {
+public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.ViewHolder>{
 
     ArrayList<AudioModel> songsList;
     Context context;
 
-    public MusicListAdapter(ArrayList<AudioModel> songList, Context context) {
-        this.songsList = songList;
+    public MusicListAdapter(ArrayList<AudioModel> songsList, Context context) {
+        this.songsList = songsList;
         this.context = context;
     }
 
-    // needed these three method to display method inside recyclerView
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //here we have to return view holder class
+    public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_item,parent,false);
         return new MusicListAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-
+    public void onBindViewHolder( MusicListAdapter.ViewHolder holder, int position) {
         AudioModel songData = songsList.get(position);
         holder.titleTextView.setText(songData.getTitle());
 
+        if(MyMediaPlayer.currentIndex==position){ //if the selected songis played
+            holder.titleTextView.setTextColor(Color.parseColor("#FF0000")); //update the color of current song
+        }else{
+            holder.titleTextView.setTextColor(Color.parseColor("#000000")); //update the color of other songa
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //navigator to another activity
+            public void onClick(View v) {
+                //navigate to another acitivty
 
-
-                MyMediaPlayer.getInstace().reset();//first we need to reset everything
-                MyMediaPlayer.currentIndex = position; //whatever the position we play
-
-                //Navigate to new activity
-                Intent intent = new Intent(context, MusicPlayerActivity.class);
+                MyMediaPlayer.getInstance().reset();
+                MyMediaPlayer.currentIndex = position;
+                Intent intent = new Intent(context,MusicPlayerActivity.class);
                 intent.putExtra("LIST",songsList);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
+
             }
         });
+
     }
 
     @Override
@@ -68,12 +67,10 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
 
         TextView titleTextView;
         ImageView iconImageView;
-
         public ViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.music_title_text);
             iconImageView = itemView.findViewById(R.id.icon_view);
-
         }
     }
 }

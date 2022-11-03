@@ -2,7 +2,7 @@ package en.sundaram.musicplayer;
 
 import java.io.Serializable;
 
-public class AudioModel implements Serializable { // serializable is used for passing this audioModel to other activities as well
+public class AudioModel implements Serializable {
     String path;
     String title;
     String duration;
