@@ -25,17 +25,17 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
     }
 
     @Override
-    public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder( ViewGroup parent, int viewType) { // to create a new ViewHolder and initializes some private fields to be used by RecyclerView.
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_item,parent,false);
         return new MusicListAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder( MusicListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder( MusicListAdapter.ViewHolder holder, int position) { // to update the ViewHolder contents with the item at the given position
         AudioModel songData = songsList.get(position);
-        holder.titleTextView.setText(songData.getTitle());
+        holder.titleTextView.setText(songData.getTitle()); //update the title with the current song name
 
-        if(MyMediaPlayer.currentIndex==position){ //if the selected songis played
+        if(MyMediaPlayer.currentIndex==position){ //if the selected songs played
             holder.titleTextView.setTextColor(Color.parseColor("#FF0000")); //update the color of current song
         }else{
             holder.titleTextView.setTextColor(Color.parseColor("#000000")); //update the color of other songa
@@ -44,14 +44,14 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //navigate to another acitivty
+                //navigate to another activity
 
                 MyMediaPlayer.getInstance().reset();
                 MyMediaPlayer.currentIndex = position;
                 Intent intent = new Intent(context,MusicPlayerActivity.class);
                 intent.putExtra("LIST",songsList);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(intent);
+                context.startActivity(intent); //start new activity ( music player activity ) when song is clicked
 
             }
         });
@@ -69,7 +69,7 @@ public class MusicListAdapter extends RecyclerView.Adapter<MusicListAdapter.View
         ImageView iconImageView;
         public ViewHolder(View itemView) {
             super(itemView);
-            titleTextView = itemView.findViewById(R.id.music_title_text);
+            titleTextView = itemView.findViewById(R.id.music_title_text); //
             iconImageView = itemView.findViewById(R.id.icon_view);
         }
     }

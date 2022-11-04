@@ -10,8 +10,8 @@
     android:id="@+id/songs_text"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Songs"
-    android:textSize="20dp"
+    android:text="@string/songs"
+    android:textSize="20sp"
     android:textStyle="bold"
     android:padding="10dp"
     android:layout_centerHorizontal="true"/>
@@ -20,7 +20,7 @@
         android:id="@+id/no_song_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO SONGS FOUND"
+        android:text="@string/no_songs_found"
         android:layout_centerInParent="true"
         android:visibility="gone"/>
 

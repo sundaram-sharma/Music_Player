@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        String[] projection = {
+        String[] projection = { //
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DATA,
                 MediaStore.Audio.Media.DURATION
@@ -62,24 +62,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    boolean checkPermission(){
-        int result = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        if(result == PackageManager.PERMISSION_GRANTED){
-            return true;
-        }else{
-            return false;
+    boolean checkPermission(){ //the method will check for the permission
+        int result = ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE); //store the permission result in result
+        if(result == PackageManager.PERMISSION_GRANTED)
+        {
+            return true; //return true to the method
+        }
+        else
+        {
+            return false; //return false to the method
         }
     }
 
-    void requestPermission(){
+    void requestPermission(){ //this method will ask for the permission
         if(ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
-            Toast.makeText(MainActivity.this,"READ PERMISSION IS REQUIRED,PLEASE ALLOW FROM SETTTINGS",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this,"READ PERMISSION IS REQUIRED,PLEASE ALLOW FROM SETTINGS",Toast.LENGTH_SHORT).show();
         }else
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},123);
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume() { //update list when onResume
         super.onResume();
         if(recyclerView!=null){
             recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));

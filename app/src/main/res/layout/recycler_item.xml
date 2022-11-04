@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/music_title_text"
         android:layout_toEndOf="@+id/icon_view"
-        android:text="Music"
+        android:text="@string/music"
         android:textColor="@color/black"
         android:maxLines="1"
         android:padding="10dp"
