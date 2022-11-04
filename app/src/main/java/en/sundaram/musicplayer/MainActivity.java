@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
 
         if(checkPermission() == false){
             requestPermission();
-            return;
+            //return;
         }
-
+        Log.d("hello","bahar");
         String[] projection = { //
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DATA,
@@ -50,12 +51,16 @@ public class MainActivity extends AppCompatActivity {
             AudioModel songData = new AudioModel(cursor.getString(1),cursor.getString(0),cursor.getString(2));
             if(new File(songData.getPath()).exists())
                 songsList.add(songData);
+
         }
 
+
         if(songsList.size()==0){
+            Log.d("hello","if statement");
             noMusicTextView.setVisibility(View.VISIBLE);
             Toast.makeText(this,"No audio file found",Toast.LENGTH_SHORT).show();
         }else{
+            Log.d("hello","else statement");
             //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));

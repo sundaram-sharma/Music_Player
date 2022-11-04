@@ -1,6 +1,7 @@
 package en.sundaram.musicplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -111,6 +112,15 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
             try { //try catch for exception
                 musicIcon.setImageBitmap(bitmap); //if album art is present, set icon to that
+                final int sdk = android.os.Build.VERSION.SDK_INT;
+                if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN)
+                {
+                    
+                }
+                else
+                {
+
+                }
             }
             catch (Exception e)
             {
