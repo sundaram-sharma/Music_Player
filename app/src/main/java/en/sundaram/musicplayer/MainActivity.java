@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(songsList.size()==0){
             noMusicTextView.setVisibility(View.VISIBLE);
+            Toast.makeText(this,"No audio file found",Toast.LENGTH_SHORT).show();
         }else{
             //recyclerview
             recyclerView.setLayoutManager(new LinearLayoutManager(this));

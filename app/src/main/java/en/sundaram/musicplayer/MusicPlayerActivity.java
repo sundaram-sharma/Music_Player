@@ -106,31 +106,23 @@ public class MusicPlayerActivity extends AppCompatActivity {
         mmr.setDataSource(currentSong.getPath());
         byte [] data = mmr.getEmbeddedPicture();
 
-        if(data != null){
+        if(data != null){ //check if the data array provided for image is present
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
 
-            try {
-                musicIcon.setImageBitmap(bitmap);
+            try { //try catch for exception
+                musicIcon.setImageBitmap(bitmap); //if album art is present, set icon to that
             }
-            catch (Exception e){
+            catch (Exception e)
+            {
 
             }
 
         }
         else
         {
-            musicIcon.setImageResource(R.drawable.ic_music_icon_big);
+            musicIcon.setImageResource(R.drawable.ic_music_icon_big); //default image if no album art
         }
 
-
-       /* if(bitmap == null)
-        {
-            musicIcon.setImageBitmap(bitmap);
-        }
-        else
-        {
-            musicIcon.setImageResource(R.id.music_icon_big);
-        }*/
 
 
         titleTv.setText(currentSong.getTitle());
