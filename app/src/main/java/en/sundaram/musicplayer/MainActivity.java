@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     RecyclerView recyclerView;
     TextView noMusicTextView;
     ArrayList<AudioModel> songsList = new ArrayList<>();
@@ -29,6 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
 
         recyclerView = findViewById(R.id.recycler_view);
         noMusicTextView = findViewById(R.id.no_song_text);
