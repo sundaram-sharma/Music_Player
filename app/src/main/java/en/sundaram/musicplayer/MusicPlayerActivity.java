@@ -2,6 +2,10 @@ package en.sundaram.musicplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -28,6 +32,9 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music_player);
 
@@ -41,6 +48,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
         musicIcon = findViewById(R.id.music_icon_big);
 
         titleTv.setSelected(true);
+
+
 
         songsList = (ArrayList<AudioModel>) getIntent().getSerializableExtra("LIST");
 
@@ -92,6 +101,37 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
     void setResourcesWithMusic(){
         currentSong = songsList.get(MyMediaPlayer.currentIndex);
+
+        MediaMetadataRetriever mmr = new MediaMetadataRetriever();
+        mmr.setDataSource(currentSong.getPath());
+        byte [] data = mmr.getEmbeddedPicture();
+
+        if(data != null){
+            Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+
+            try {
+                musicIcon.setImageBitmap(bitmap);
+            }
+            catch (Exception e){
+
+            }
+
+        }
+        else
+        {
+            musicIcon.setImageResource(R.drawable.ic_music_icon_big);
+        }
+
+
+       /* if(bitmap == null)
+        {
+            musicIcon.setImageBitmap(bitmap);
+        }
+        else
+        {
+            musicIcon.setImageResource(R.id.music_icon_big);
+        }*/
+
 
         titleTv.setText(currentSong.getTitle());
 
