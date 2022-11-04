@@ -7,7 +7,7 @@ public class AudioModel implements Serializable {
     String title;
     String duration;
 
-    public AudioModel(String path, String title, String duration) {
+    public AudioModel(String path, String title, String duration) { //constructor generated
         this.path = path;
         this.title = title;
         this.duration = duration;
@@ -15,7 +15,7 @@ public class AudioModel implements Serializable {
 
     public String getPath() {
         return path;
-    }
+    } //getter and setter generated
 
     public void setPath(String path) {
         this.path = path;
