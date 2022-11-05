@@ -70,8 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
                         ;break;
                     case R.id.themes:
-                        Toast.makeText(MainActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new Theme_fragment());
+
+                        Fragment fragment = new Theme_fragment();
+                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.abcd,fragment).commit();
+
                         break;
                     case R.id.equalizer:
                         Toast.makeText(MainActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();
