@@ -6,12 +6,15 @@ import androidx.core.content.ContextCompat;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ import en.sundaram.musicplayer.MyMediaPlayer;
 
 public class MusicPlayerActivity extends AppCompatActivity {
 
+    RelativeLayout relativeLayout;
     TextView titleTv,currentTimeTv,totalTimeTv;
     SeekBar seekBar;
     ImageView pausePlay,nextBtn,previousBtn,musicIcon;
@@ -47,6 +51,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
         nextBtn = findViewById(R.id.next);
         previousBtn = findViewById(R.id.previous);
         musicIcon = findViewById(R.id.music_icon_big);
+        relativeLayout = findViewById(R.id.player_background);
 
         titleTv.setSelected(true);
 
@@ -112,6 +117,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
 
             try { //try catch for exception
                 musicIcon.setImageBitmap(bitmap); //if album art is present, set icon to that
+                Drawable drawable = new BitmapDrawable(getResources(), bitmap);
+                relativeLayout.setBackground(drawable);
                 final int sdk = android.os.Build.VERSION.SDK_INT;
                 if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN)
                 {

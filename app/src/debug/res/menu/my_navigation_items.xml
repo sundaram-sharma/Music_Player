@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/nav_message"
+        android:icon="@drawable/ic_theme"
+        android:title="Themes" />
+    <item
+        android:id="@+id/synch"
+        android:icon="@drawable/ic_equalizer"
+        android:title="Equalizer" />
+    <item
+        android:id="@+id/trash"
+        android:icon="@drawable/ic_widgets"
+        android:title="Widget" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_settings"
+        android:title="Settings" />
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/ic_rate"
+                android:title="Rate us" />
+        </menu>
+    </item>
+</menu>
