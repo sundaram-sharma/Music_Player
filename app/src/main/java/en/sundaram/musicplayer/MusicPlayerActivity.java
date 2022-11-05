@@ -3,6 +3,7 @@ package en.sundaram.musicplayer;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -13,6 +14,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -29,6 +33,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     RelativeLayout relativeLayout;
     TextView titleTv,currentTimeTv,totalTimeTv;
     SeekBar seekBar;
+    Button imageButton;
     ImageView pausePlay,nextBtn,previousBtn,musicIcon;
     ArrayList<AudioModel> songsList;
     AudioModel currentSong;
@@ -52,8 +57,10 @@ public class MusicPlayerActivity extends AppCompatActivity {
         previousBtn = findViewById(R.id.previous);
         musicIcon = findViewById(R.id.music_icon_big);
         relativeLayout = findViewById(R.id.player_background);
+        //imageButton = findViewById(R.id.back_button1);
 
         titleTv.setSelected(true);
+
 
 
 
@@ -102,6 +109,15 @@ public class MusicPlayerActivity extends AppCompatActivity {
             }
         });
 
+
+/*        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("thes","aya");
+                Intent intent = new Intent(MusicPlayerActivity.this,MainActivity.class);
+                Log.d("thes","or gaya");
+            }
+        });*/
 
     }
 

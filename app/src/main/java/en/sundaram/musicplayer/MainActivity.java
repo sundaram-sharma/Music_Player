@@ -6,16 +6,16 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MenuItem;
@@ -59,24 +59,40 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
 
                 int id = item.getItemId();
+                item.setChecked(true);
                 drawerLayout.closeDrawer(GravityCompat.START);
                 switch (id)
                 {
 
-                    case R.id.nav_home:
-                        Toast.makeText(MainActivity.this, "Home is Clicked", Toast.LENGTH_SHORT).show();break;
-                    case R.id.nav_message:
-                        Toast.makeText(MainActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.synch:
-                        Toast.makeText(MainActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.trash:
-                        Toast.makeText(MainActivity.this, "Trash is Clicked",Toast.LENGTH_SHORT).show();break;
+                    case R.id.mainHome:
+                        Toast.makeText(MainActivity.this, "Home is Clicked", Toast.LENGTH_SHORT).show()
+
+
+                        ;break;
+                    case R.id.themes:
+                        Toast.makeText(MainActivity.this, "Message is Clicked",Toast.LENGTH_SHORT).show();
+                        replaceFragment(new Theme_fragment());
+                        break;
+                    case R.id.equalizer:
+                        Toast.makeText(MainActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();
+                        replaceFragment(new Theme_fragment());
+                        break;
+                    case R.id.widget:
+                        Toast.makeText(MainActivity.this, "Trash is Clicked",Toast.LENGTH_SHORT).show();
+                        replaceFragment(new Theme_fragment());
+                        break;
                     case R.id.settings:
-                        Toast.makeText(MainActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.nav_share:
-                        Toast.makeText(MainActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();break;
-                    case R.id.nav_rate:
-                        Toast.makeText(MainActivity.this, "Rate us is Clicked",Toast.LENGTH_SHORT).show();break;
+                        Toast.makeText(MainActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();
+                        replaceFragment(new Settings_fragment());
+                        break;
+                    case R.id.shareApp:
+                        Toast.makeText(MainActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();
+                        replaceFragment(new Theme_fragment());
+                        break;
+                    case R.id.rateUs:
+                        Toast.makeText(MainActivity.this, "Rate us is Clicked",Toast.LENGTH_SHORT).show();
+                        replaceFragment(new Theme_fragment());
+                        break;
                     default:
                         return true;
 
@@ -152,5 +168,12 @@ public class MainActivity extends AppCompatActivity {
         if(recyclerView!=null){
             recyclerView.setAdapter(new MusicListAdapter(songsList,getApplicationContext()));
         }
+    }
+
+    void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager(); //make fragManager object
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction(); //begin trasnaction
+        fragmentTransaction.replace(R.id.frameLayout,fragment);
+        fragmentTransaction.commit();
     }
 }

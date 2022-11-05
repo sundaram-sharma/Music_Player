@@ -3,20 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+    <group android:checkableBehavior="single">
+
     <item
-        android:id="@+id/nav_home"
+        android:id="@+id/mainHome"
         android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
-        android:id="@+id/nav_message"
+        android:id="@+id/themes"
         android:icon="@drawable/ic_theme"
         android:title="Themes" />
     <item
-        android:id="@+id/synch"
+        android:id="@+id/equalizer"
         android:icon="@drawable/ic_equalizer"
         android:title="Equalizer" />
     <item
-        android:id="@+id/trash"
+        android:id="@+id/widget"
         android:icon="@drawable/ic_widgets"
         android:title="Widget" />
     <item
@@ -24,17 +26,21 @@
         android:icon="@drawable/ic_settings"
         android:title="Settings" />
 
+    </group>
+
 
     <item android:title="Communicate">
         <menu>
+            <group android:checkableBehavior="single">
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/shareApp"
                 android:icon="@drawable/ic_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_rate"
+                android:id="@+id/rateUs"
                 android:icon="@drawable/ic_rate"
                 android:title="Rate us" />
+            </group>
         </menu>
     </item>
 </menu>

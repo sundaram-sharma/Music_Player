@@ -6,4 +6,7 @@
     <string name="music">Music</string>
     <string name="songs">Songs</string>
     <string name="no_songs_found">NO SONGS FOUND</string>
+    <string name="backbutton">BackButton</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
