@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui;
+package en.sundaram.musicplayer.ui.equalizer;
 
 import android.os.Bundle;
 

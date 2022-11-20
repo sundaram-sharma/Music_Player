@@ -29,8 +29,8 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.File;
 import java.util.ArrayList;
 
-import en.sundaram.musicplayer.ui.equalizerFragment;
-import en.sundaram.musicplayer.ui.themefragment;
+import en.sundaram.musicplayer.ui.equalizer.equalizerFragment;
+import en.sundaram.musicplayer.ui.theme.themefragment;
 
 public class mainActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui;
+package en.sundaram.musicplayer.ui.theme;
 
 import android.os.Bundle;
 
