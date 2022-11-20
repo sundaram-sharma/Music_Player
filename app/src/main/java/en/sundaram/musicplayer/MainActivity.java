@@ -29,6 +29,9 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.File;
 import java.util.ArrayList;
 
+import en.sundaram.musicplayer.ui.EqualizerFragment;
+import en.sundaram.musicplayer.ui.Themefragment;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -59,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull @org.jetbrains.annotations.NotNull MenuItem item) {
 
                 int id = item.getItemId();
-                item.setChecked(true);
+                item.setChecked(true); //highlight the item in navigation drawer
                 drawerLayout.closeDrawer(GravityCompat.START);
                 switch (id)
                 {
@@ -70,31 +73,26 @@ public class MainActivity extends AppCompatActivity {
 
                         ;break;
                     case R.id.themes:
-
-                        Fragment fragment = new Theme_fragment();
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.abcd,fragment).commit();
-
+                        replaceFragment(new Themefragment());
                         break;
                     case R.id.equalizer:
                         Toast.makeText(MainActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new Theme_fragment());
+                        replaceFragment(new EqualizerFragment());
                         break;
                     case R.id.widget:
                         Toast.makeText(MainActivity.this, "Trash is Clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new Theme_fragment());
+                        replaceFragment(new Themefragment());
                         break;
                     case R.id.settings:
-                        Toast.makeText(MainActivity.this, "Settings is Clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new Settings_fragment());
+                        //replaceFragment(new SettingsFragment());
                         break;
                     case R.id.shareApp:
                         Toast.makeText(MainActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new Theme_fragment());
+
                         break;
                     case R.id.rateUs:
                         Toast.makeText(MainActivity.this, "Rate us is Clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new Theme_fragment());
+
                         break;
                     default:
                         return true;
