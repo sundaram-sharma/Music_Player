@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer;
+package en.sundaram.musicplayer.model;
 
 import java.io.Serializable;
 

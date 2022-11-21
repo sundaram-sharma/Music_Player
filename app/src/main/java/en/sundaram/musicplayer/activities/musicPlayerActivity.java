@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer;
+package en.sundaram.musicplayer.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,6 +19,10 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+
+import en.sundaram.musicplayer.R;
+import en.sundaram.musicplayer.model.audioModel;
+import en.sundaram.musicplayer.myMediaPlayer;
 
 public class musicPlayerActivity extends AppCompatActivity {
 
@@ -126,7 +130,7 @@ public class musicPlayerActivity extends AppCompatActivity {
             try { //try catch for exception
                 musicIcon.setImageBitmap(bitmap); //if album art is present, set icon to that
                 Drawable drawable = new BitmapDrawable(getResources(), bitmap);
-                relativeLayout.setBackground(drawable);
+                //relativeLayout.setBackground(drawable);
                 final int sdk = android.os.Build.VERSION.SDK_INT;
                 if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN)
                 {

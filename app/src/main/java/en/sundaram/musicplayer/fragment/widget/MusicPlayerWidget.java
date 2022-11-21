@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui.widget;
+package en.sundaram.musicplayer.fragment.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;

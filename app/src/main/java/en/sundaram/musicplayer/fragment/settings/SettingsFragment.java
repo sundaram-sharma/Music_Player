@@ -1,9 +1,11 @@
-package en.sundaram.musicplayer;
+package en.sundaram.musicplayer.fragment.settings;
 
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.preference.PreferenceFragmentCompat;
+
+import en.sundaram.musicplayer.R;
 
 public class SettingsFragment extends PreferenceFragmentCompat {
 

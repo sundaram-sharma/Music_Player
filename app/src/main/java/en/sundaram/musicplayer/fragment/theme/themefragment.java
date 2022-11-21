@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui.theme;
+package en.sundaram.musicplayer.fragment.theme;
 
 import android.os.Bundle;
 
@@ -16,6 +16,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import en.sundaram.musicplayer.R;
+import en.sundaram.musicplayer.adapter.themeGVAdapter;
+import en.sundaram.musicplayer.model.themeModel;
 
 
 public class themefragment extends Fragment {

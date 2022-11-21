@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui.theme;
+package en.sundaram.musicplayer.model;
 
 public class themeModel {
 

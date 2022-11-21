@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui.theme;
+package en.sundaram.musicplayer.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 import en.sundaram.musicplayer.R;
+import en.sundaram.musicplayer.model.themeModel;
 
 public class themeGVAdapter extends ArrayAdapter<themeModel> {
 

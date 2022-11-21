@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer.ui.splash;
+package en.sundaram.musicplayer.activities.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import en.sundaram.musicplayer.R;
-import en.sundaram.musicplayer.mainActivity;
+import en.sundaram.musicplayer.activities.mainActivity;
 
 public class splashScreen extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer;
+package en.sundaram.musicplayer.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import en.sundaram.musicplayer.R;
+import en.sundaram.musicplayer.model.audioModel;
+import en.sundaram.musicplayer.activities.musicPlayerActivity;
+import en.sundaram.musicplayer.myMediaPlayer;
 
 public class musicListAdapter extends RecyclerView.Adapter<musicListAdapter.ViewHolder>{
 

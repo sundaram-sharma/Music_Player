@@ -1,4 +1,4 @@
-package en.sundaram.musicplayer;
+package en.sundaram.musicplayer.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,9 +30,11 @@ import com.google.android.material.navigation.NavigationView;
 import java.io.File;
 import java.util.ArrayList;
 
-import en.sundaram.musicplayer.ui.equalizer.equalizerFragment;
-import en.sundaram.musicplayer.ui.splash.splashScreen;
-import en.sundaram.musicplayer.ui.theme.themefragment;
+import en.sundaram.musicplayer.R;
+import en.sundaram.musicplayer.adapter.musicListAdapter;
+import en.sundaram.musicplayer.fragment.equalizer.equalizerFragment;
+import en.sundaram.musicplayer.fragment.theme.themefragment;
+import en.sundaram.musicplayer.model.audioModel;
 
 public class mainActivity extends AppCompatActivity {
 
@@ -77,27 +79,29 @@ public class mainActivity extends AppCompatActivity {
 
                         ;break;
                     case R.id.themes:
+                        Toast.makeText(mainActivity.this, "Will be updated soon",Toast.LENGTH_SHORT).show();
                         replaceFragment(new themefragment());
                         getFragmentManager().popBackStack();
                         break;
                     case R.id.equalizer:
-                        Toast.makeText(mainActivity.this, "Synch is Clicked",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mainActivity.this, "Will be updated soon",Toast.LENGTH_SHORT).show();
                         replaceFragment(new equalizerFragment());
                         getFragmentManager().popBackStack();
                         break;
                     case R.id.widget:
-                        Toast.makeText(mainActivity.this, "Widget is Clicked",Toast.LENGTH_SHORT).show();
-                        replaceFragment(new themefragment());
+                        Toast.makeText(mainActivity.this, "Will be updated soon",Toast.LENGTH_SHORT).show();
+
                         getFragmentManager().popBackStack();
                         break;
                     case R.id.settings:
-                        getFragmentManager().popBackStack();
-                        replaceFragment(new SettingsFragment());
+                        Toast.makeText(mainActivity.this, "Will be updated soon",Toast.LENGTH_SHORT).show();
+                        //getFragmentManager().popBackStack();
+                        //replaceFragment(new SettingsFragment());
 
 
                         break;
                     case R.id.shareApp:
-                        Toast.makeText(mainActivity.this, "Share is clicked",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mainActivity.this, "Will be updated soon",Toast.LENGTH_SHORT).show();
                         getFragmentManager().popBackStack();
 
                         break;
